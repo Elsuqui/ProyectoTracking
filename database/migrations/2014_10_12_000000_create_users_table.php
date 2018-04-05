@@ -65,7 +65,7 @@ class CreateUsersTable extends Migration
             $table->integer('id_cooperativa')->unsigned();
             $table->integer('id_privilegio')->unsigned();
             $table->string('estado');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_cooperativa')->references('id')->on('cooperativa');
             $table->foreign('id_privilegio')->references('id')->on('privilegio');
             $table->engine = 'InnoDB';
             $table->timestamps();
