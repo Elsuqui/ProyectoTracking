@@ -20,10 +20,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/semantic.min.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #4DB6AC;">
 
     <div class="ui fluid container">
-        <div class="ui attached stackable menu">
+        <div class="ui attached top menu">
             <div class="header item">
                 <img src="{{ asset('images/logo.png') }}" alt="Incio">
                 <a href="#">
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-        <div class="ui fluid container segment" style="height: 100%;">
+        <div class="ui container">
             @yield('content')
         </div>
     </div>

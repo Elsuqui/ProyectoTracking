@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="ui one column stackable center aligned page grid">
+        <div class="row"></div>
         <div class="column twelve wide">
             <div class="ui raised segment">
             <img class="ui centered small circular image" src="{{ asset('images/user_image.png') }}">
@@ -34,8 +35,8 @@
             </div>
             <div class="field">
                     <div class="ui checkbox">
-                      <input type="checkbox" tabindex="0" class="hidden" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                      <label>{{ __('Remember Me') }}</label>
+                      <input type="checkbox" tabindex="0" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                      <label>{{ __('Recuerdame') }}</label>
                     </div>
             </div>
                     <button class="ui green button" type="submit">{{ __('Iniciar') }}</button>
