@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
         });
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_cooperativa')->unsigned();
+            //$table->integer('id_cooperativa')->unsigned();
             $table->string('nombres');
             $table->string('apellidos');
             $table->date('fecha_nacimiento');
@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->engine = 'InnoDB';
-            $table->foreign('id_cooperativa')->references('id')->on('cooperativa');
+            //$table->foreign('id_cooperativa')->references('id')->on('cooperativa');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -49,10 +49,12 @@ class CreateUsersTable extends Migration
 
         Schema::create('privilegio', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_cooperativa')->unsigned();
             $table->integer('id_rol')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->foreign('id_rol')->references('id')->on('rol');
             $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_cooperativa')->references('id')->on('cooperativa');
             $table->engine = 'InnoDB';
             $table->timestamps();
         });
