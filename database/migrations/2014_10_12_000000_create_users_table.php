@@ -47,18 +47,29 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
+
         Schema::create('privilegio', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_cooperativa')->unsigned();
+            
             $table->integer('id_rol')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->foreign('id_rol')->references('id')->on('rol');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_cooperativa')->references('id')->on('cooperativa');
+           
             $table->engine = 'InnoDB';
             $table->timestamps();
         });
 
+        Schema::create('pertenece', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_cooperativa')->unsigned();
+            $table->integer('id_privilegio')->unsigned();
+            $table->string('estado');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_privilegio')->references('id')->on('privilegio');
+            $table->engine = 'InnoDB';
+            $table->timestamps();
+        });
 
         Schema::create('planificacion', function (Blueprint $table) {
             $table->increments('id');
