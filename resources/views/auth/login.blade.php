@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+        <div class="ui one column stackable center aligned page grid">
 
-    <div class="ui one column stackable center aligned page grid">
-        <div class="row"></div>
         <div class="column twelve wide">
-            <div class="ui raised segment">
+            <div class="ui piled segment">
             <img class="ui centered small circular image" src="{{ asset('images/user_image.png') }}">
                 
                 <h4 class="ui horizontal divider header">
@@ -43,6 +42,7 @@
                     <a class="ui brown button" href="{{ route('password.request') }}">
                             {{ __('Olvidaste la contraseña?') }}
                     </a>
+                    <a class="ui blue button" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
             </form>
             </div>
         </div>
