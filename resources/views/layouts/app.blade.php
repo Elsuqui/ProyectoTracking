@@ -37,7 +37,7 @@
             </div>
         @auth
             <div class="right menu">
-            <div class="item" id="actPerfil">
+            <div class="item link" id="actPerfil">
                 <img class="ui avatar mini image" src="{{ asset('images/user_image.png') }}">
                 <span>{{ Auth::user()->nombres }}</span>
                 <div class="ui popup bottom center hidden" id="popPerfil" data-variation="mini">
