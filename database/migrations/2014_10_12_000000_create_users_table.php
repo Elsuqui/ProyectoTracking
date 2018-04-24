@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use App\Roles;
 class CreateUsersTable extends Migration
 {
     /**
@@ -109,6 +109,21 @@ class CreateUsersTable extends Migration
             $table->foreign('id_planificacion')->references('id')->on('planificacion');
             $table->timestamps();
         });
+
+        $new_r=new Roles();
+        $new_r->nombre='SuperAdmin';
+        $new_r->estado='A';
+        $new_r->save();
+
+        $new_r=new Roles();
+        $new_r->nombre='Admin';
+        $new_r->estado='A';
+        $new_r->save();
+
+        $new_r=new Roles();
+        $new_r->nombre='User';
+        $new_r->estado='A';
+        $new_r->save();
     }
 
     /**
