@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+        
         <div class="ui one column stackable center aligned page grid">
-
+        <div class="row"></div>
         <div class="column twelve wide">
             <div class="ui piled segment">
             <img class="ui centered small circular image" src="{{ asset('images/user_image.png') }}">

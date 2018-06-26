@@ -5,20 +5,38 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Bus Tracking</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet" type="text/css">
 
+        
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
+
+            html,body {
+                color: #FF4136;
+                font-family: 'Old Standard TT', serif;
+                font-weight: bold;
                 height: 100vh;
-                margin: 0;
+                margin: 0px;
+            }
+
+            .background {
+                background-image: url("images/background1.jpg");
+                background-size: cover;
+                position: fixed; 
+                top: 0; 
+                left: 0; 
+                -webkit-filter: opacity(.4);
+                filter: opacity(.4); 
+                min-width: 100%;
+                min-height: 100%;
+            }
+
+            .logo {
+                width: 10%;
+                height: 10%;
             }
 
             .full-height {
@@ -46,13 +64,15 @@
             }
 
             .title {
-                font-size: 84px;
+                margin-top: 100px;
+                font-size: 100px;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #004D40;
                 padding: 0 25px;
-                font-size: 12px;
+                border-bottom: 2px #004D40 double;
+                font-size: 15px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -65,6 +85,7 @@
         </style>
     </head>
     <body>
+        <div class="background"></div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,7 +100,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Bus Tracking <img src="images/logo.png" alt="" class="logo">
                 </div>
 
                 <div class="links">
