@@ -73,7 +73,7 @@
             @yield('content')
     </div>
     @else
-    <div class="ui fluid container">
+    <div class="ui raised container segment">
             @yield('content')
     </div>
     <div class="ui fluid container">
@@ -83,7 +83,7 @@
                     <div class="row">H</div>
                     <div class="row">H</div>
             </div>
-        </div>
+    </div>
     @endguest
 </body>
 </html>
