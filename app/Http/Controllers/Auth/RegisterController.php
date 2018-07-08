@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6',
             'password-confirm' => 'min:6|same:password',
             'cedula' => 'required|string|min:10',
-            'fecha_nacimiento' => 'required|date',
+            'fecha_nacimiento' => 'date_format: "d/m/Y"|required',
             'telefono' => 'required|string|between:6,10'
         ]);
     }
@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'cedula' => $data['cedula'],
-            'fecha_nacimiento' => $data['fecha_nacimiento'],
+            'fecha_nacimiento' => date('Y/m/d', strtotime($data['fecha_nacimiento'])),
             'telefono' => $data['telefono'],
         ]);
     }

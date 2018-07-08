@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
         <div class="ui one column stackable center aligned page grid">
         <div class="row"></div>
         <div class="column twelve wide">

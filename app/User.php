@@ -30,8 +30,6 @@ class User extends Authenticatable
      */
     protected $fillable = ['id','id_cooperativa',
         'nombres', 'apellidos', 'email', 'password', 'cedula', 'fecha_nacimiento','telefono',
-    }
-    }
     ];
 
     /**

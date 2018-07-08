@@ -1,0 +1,12 @@
+/* Cuerpo de Registro */
+.login_register{
+  background-image: url('../images/register1.jpg');
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-filter: opacity(.4);
+  filter: opacity(.8);
+  min-width: 100%;
+  min-height: 100%;
+}

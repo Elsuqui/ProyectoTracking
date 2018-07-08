@@ -39,7 +39,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('rol', function (Blueprint $table) {
+        /*Schema::create('rol', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
             $table->string('estado');
@@ -50,12 +50,12 @@ class CreateUsersTable extends Migration
 
         Schema::create('privilegio', function (Blueprint $table) {
             $table->increments('id');
-            
+
             $table->integer('id_rol')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->foreign('id_rol')->references('id')->on('rol');
             $table->foreign('id_user')->references('id')->on('users');
-           
+
             $table->engine = 'InnoDB';
             $table->timestamps();
         });
@@ -69,7 +69,7 @@ class CreateUsersTable extends Migration
             $table->foreign('id_privilegio')->references('id')->on('privilegio');
             $table->engine = 'InnoDB';
             $table->timestamps();
-        });
+        });*/
 
         Schema::create('planificacion', function (Blueprint $table) {
             $table->increments('id');
@@ -109,21 +109,6 @@ class CreateUsersTable extends Migration
             $table->foreign('id_planificacion')->references('id')->on('planificacion');
             $table->timestamps();
         });
-
-        $new_r=new Roles();
-        $new_r->nombre='SuperAdmin';
-        $new_r->estado='A';
-        $new_r->save();
-
-        $new_r=new Roles();
-        $new_r->nombre='Admin';
-        $new_r->estado='A';
-        $new_r->save();
-
-        $new_r=new Roles();
-        $new_r->nombre='User';
-        $new_r->estado='A';
-        $new_r->save();
     }
 
     /**
@@ -137,7 +122,7 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('bus');
         Schema::dropIfExists('linea');
         Schema::dropIfExists('planificacion');
-        
+
         Schema::dropIfExists('privilegio');
         Schema::dropIfExists('rol');
         Schema::dropIfExists('users');
