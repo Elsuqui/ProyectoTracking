@@ -3,7 +3,7 @@
 @section('content')
 <div class="ui one column stackable center aligned page grid">
     <div class="row"></div>
-    <div class="column twelve wide">
+    <div class="twelve wide column">
         <div class="ui piled segment">
             <img class="ui centered medium rounded image" src="{{ asset('images/registrarse.png') }}">
             <h4 class="ui horizontal divider header">
@@ -84,14 +84,16 @@
                 </div>
 
                 <div class="field {{ $errors->has('fecha_nacimiento') ? 'error' : '' }}">
-                    <label for="fecha_nacimiento">{{ __('Fecha de Nacimiento') }}</label>
-                    <input id="fecha_nacimiento" type="date" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required>
-                    @if ($errors->has('fecha_nacimiento'))
-                        <div class="ui error message">
-                            <div class="header">Error de Fecha Nacimiento</div>
-                            <p>{{ $errors->first('fecha_nacimiento') }}</p>
-                        </div>
-                    @endif
+                    <div class="ui calendar" id="datePicker">
+                      <label for="fecha_nacimiento">{{ __('Fecha de Nacimiento') }}</label>
+                      <input id="fecha_nacimiento" type="text" name="fecha_nacimiento" style="text-align:center;" autocomplete="off" placeholder="dd/mm/yyyy" value="{{ old('fecha_nacimiento') }}" required>
+                      @if ($errors->has('fecha_nacimiento'))
+                          <div class="ui error message">
+                              <div class="header">Error de Fecha Nacimiento</div>
+                              <p>{{ $errors->first('fecha_nacimiento') }}</p>
+                          </div>
+                      @endif
+                    </div>
                 </div>
                 <div class="ui buttons">
                         <button type="submit" class="ui blue button">
@@ -101,7 +103,25 @@
                         <a class="ui positive button" href="{{ route('login') }}">Iniciar Sesion</a>
                 </div>
             </form>
+            <br/>
+            <div class="row">
+              <div class="ui animated fade button" tabindex="0" style="width: 30%;">
+                <div class="visible content"><i class="home icon"></i></div>
+                <div class="hidden content">Pagina Principal</div>
+              </div>
+            </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section("scripts")
+<script>
+  $(document).ready(function () {
+    /*$('#datePicker').calendar({
+      type: 'date',
+
+    });*/
+  });
+</script>
 @endsection
