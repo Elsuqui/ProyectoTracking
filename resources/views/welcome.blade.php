@@ -23,8 +23,9 @@
             }
 
             .background {
-                background-image: url("images/background1.jpg");
+                background-image: url("images/backgroundElon.jpg");
                 background-size: cover;
+                background-position: center;
                 position: fixed; 
                 top: 0; 
                 left: 0; 
@@ -35,8 +36,8 @@
             }
 
             .logo {
-                width: 10%;
-                height: 10%;
+                width: 150px;
+                height: 150px;
             }
 
             .full-height {
