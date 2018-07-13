@@ -25,51 +25,69 @@
     <link rel="stylesheet" href="{{ asset('css/calendar.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ownstyle.css') }}">
 </head>
-@guest
 <body>
-@else
-<body>
-@endguest
+    <!-- Pregunto si el usuario esta autenticado entonces -->
     @auth
-    <header class="ui fluid container">
-        <div class="ui attached top menu">
-            <div class="header item">
-                <img src="{{ asset('images/logo.png') }}" alt="Incio">
-                <a href="#">
-                    {{ config('app.name') }}
-                </a>
+    <!-- Defino el menu desplegable de la pagina web -->
+    <div class="ui left vertical sidebar menu">
+        <!-- Cabecera -->
+        <div class="item">
+            <img src="{{ asset('images/logo.png') }}" alt="Incio" class="ui circular image">
+            <div class="content">
+                <div class="ui sub header">{{ config('app.name') }}</div>
+                Sistema de Rastreo
             </div>
-            <div class="right menu">
-            <div class="item link" id="actPerfil">
-                <img class="ui avatar mini image" src="{{ asset('images/user_image.png') }}">
-                <span>{{ Auth::user()->nombres }}</span>
-                <div class="ui popup bottom center hidden" id="popPerfil" data-variation="mini">
-                    <div class="ui card">
-                        <div class="centered aligned content">
-                                <div class="ui centered image">
-                                    <img src="{{ asset('images/user_image.png') }}" alt="">
-                                </div>
-                                <a href="#" class="ui blue bottom attached button">Ver Cuenta</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ui dropdown item">
-                <div class="text">Administrador</div>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <div class="item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        {{ __('Cerrar Sesion') }}
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </div>
-            </div>
-            </div>
-
         </div>
-    </header>
+        <!-- Incluyo los items del menu deplegable -->
+        <!-- Opciones -->
+        <div class="item">
+            <div class="header">Seguimiento de buses</div>
+            <div class="menu">
+                <a href="#" class="item">Rastreo de buses</a>
+            </div>
+        </div>
+    </div>
+    <div class="pusher">
+            <header class="ui fluid container">
+                    <div class="ui attached top menu">
+                        <div class="header item">
+                            <img src="{{ asset('images/logo.png') }}" alt="Incio">
+                            <a href="#" id="menu_toogle">
+                                {{ config('app.name') }}
+                            </a>
+                        </div>
+                        <div class="right menu">
+                        <div class="item link" id="actPerfil">
+                            <img class="ui avatar mini image" src="{{ asset('images/user_image.png') }}">
+                            <!-- Recupero el nombre del usuario con la informacion de usuario logeado -->
+                            <span>{{ Auth::user()->nombres }}</span>
+                            <div class="ui popup bottom center hidden" id="popPerfil" data-variation="mini">
+                                <div class="ui card">
+                                    <div class="centered aligned content">
+                                            <div class="ui centered image">
+                                                <img src="{{ asset('images/user_image.png') }}" alt="">
+                                            </div>
+                                            <a href="#" class="ui blue bottom attached button">Ver Cuenta</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui dropdown item">
+                            <div class="text">Administrador</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    {{ __('Cerrar Sesion') }}
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+            
+                    </div>
+                </header>
     @endauth
 
     @guest
@@ -90,6 +108,7 @@
             </div>
     </div>
     @endguest
+    </div>
 </body>
 </html>
 <script>
@@ -101,6 +120,9 @@
         position : 'bottom center',
         on    : 'click'
     });
+
+    //Configuracion evento para
+    $('.ui.sidebar').sidebar('attach events', '#menu_toogle');
 
     //Configuracion de calendario
     var fecha = new Date();
