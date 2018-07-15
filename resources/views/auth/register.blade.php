@@ -107,7 +107,7 @@
             <div class="row">
               <div class="ui animated fade button" tabindex="0" style="width: 30%;">
                 <div class="visible content"><i class="home icon"></i></div>
-                <div class="hidden content">Pagina Principal</div>
+              <div class="hidden content"><a href="{{ url('/') }}">Pagina Principal</a></div>
               </div>
             </div>
         </div>

@@ -15,13 +15,13 @@
             <div class="field {{ $errors->has('email') ? 'error' : '' }}">
                     <label for="email">{{ __('Correo Electrónico') }}</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-                @if ($errors->has('email'))
-                    <div class="ui error message">
-                        <div class="header">Error de Mail</div>
-                        <p>{{$errors->first('email')}}</p>
-                    </div>
-                @endif
             </div>
+            @if ($errors->has('email'))
+            <div class="ui error message">
+                <div class="header">Error de Mail</div>
+                <p>{{$errors->first('email')}}</p>
+            </div>
+            @endif
             <div class="field {{ $errors->has('password') ? 'error' : '' }}">
                 <label for="password" class="">{{ __('Contraseña') }}</label>
                 <input id="password" type="password" class="" name="password" required>
@@ -38,12 +38,30 @@
                       <label>{{ __('Recuerdame') }}</label>
                     </div>
             </div>
+            <div class="field">
+                <div class="ui error message">
+                    <i class="close icon"></i>
+                    <div class="header">Error al Iniciar Sesion</div>
+                    <ul class="list">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
                     <button class="ui green button" type="submit">{{ __('Iniciar') }}</button>
                     <a class="ui brown button" href="{{ route('password.request') }}">
                             {{ __('Olvidaste la contraseña?') }}
                     </a>
                     <a class="ui blue button" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
             </form>
+            <br/>
+             <div class="row">
+              <div class="ui animated fade button" tabindex="0" style="width: 30%;">
+                <div class="visible content"><i class="home icon"></i></div>
+                <div class="hidden content"><a href="{{ url('/') }}">Pagina Principal</a></div>
+              </div>
+            </div>
             </div>
         </div>
      </div>
