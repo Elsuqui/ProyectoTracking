@@ -10,3 +10,11 @@
   min-width: 100%;
   min-height: 100%;
 }
+
+@media (min-height: 320px) {
+  .ui.footer.main { /* Increased specificity for SO snippet priority */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}

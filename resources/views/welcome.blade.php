@@ -83,6 +83,13 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .descripcion {
+                color: black;
+                margin-bottom: 100px;
+                font-size: 50px;
+                text-transform: uppercase;
+            }
         </style>
     </head>
     <body>
@@ -101,7 +108,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Bus Tracking <img src="images/logo.png" alt="" class="logo">
+                    {{ config('app.name') }} <img src="images/logo.png" alt="" class="logo">
+                </div>
+
+                <div class="descripcion">
+                    Sistema de Control Vehicular Urbano
                 </div>
 
                 <div class="links">

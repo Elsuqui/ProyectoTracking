@@ -11,7 +11,7 @@
                 <i class="user icon"></i>{{ __('Iniciar Sesión') }}
                 </h4>
             <form method="POST" action="{{ route('login') }}" class="ui form">
-                @csrf
+            @csrf
             <div class="field {{ $errors->has('email') ? 'error' : '' }}">
                     <label for="email">{{ __('Correo Electrónico') }}</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
@@ -38,7 +38,13 @@
                       <label>{{ __('Recuerdame') }}</label>
                     </div>
             </div>
-            <div class="field">
+                    <button class="ui green button" type="submit">{{ __('Iniciar') }}</button>
+                    <a class="ui brown button" href="{{ route('password.request') }}">
+                            {{ __('Olvidaste la contraseña?') }}
+                    </a>
+                    <a class="ui blue button" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+            </form>
+            @if ($errors->any())
                 <div class="ui error message">
                     <i class="close icon"></i>
                     <div class="header">Error al Iniciar Sesion</div>
@@ -48,13 +54,7 @@
                         @endforeach
                     </ul>
                 </div>
-            </div>
-                    <button class="ui green button" type="submit">{{ __('Iniciar') }}</button>
-                    <a class="ui brown button" href="{{ route('password.request') }}">
-                            {{ __('Olvidaste la contraseña?') }}
-                    </a>
-                    <a class="ui blue button" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-            </form>
+            @endif
             <br/>
              <div class="row">
               <div class="ui animated fade button" tabindex="0" style="width: 30%;">

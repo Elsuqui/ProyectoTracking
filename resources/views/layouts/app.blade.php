@@ -35,15 +35,15 @@
             <img src="{{ asset('images/logo.png') }}" alt="Incio" class="ui circular image">
             <div class="content">
                 <div class="ui sub header">{{ config('app.name') }}</div>
-                Sistema de Rastreo
+                Sistema de Control Vehicular Urbano
             </div>
         </div>
         <!-- Incluyo los items del menu deplegable -->
         <!-- Opciones -->
         <div class="item">
-            <div class="header">Seguimiento de buses</div>
+            <div class="header">Seguimiento</div>
             <div class="menu">
-                <a href="#" class="item">Rastreo de buses</a>
+                <a href="#" class="item">Monitoreo Vehicular</a>
             </div>
         </div>
     </div>
@@ -96,17 +96,12 @@
             @yield('content')
     </div>
     @else
-    <div class="ui raised container segment">
+    <div class="ui fluid container" style="overflow:auto;">
             @yield('content')
     </div>
-    <div class="ui fluid container">
-            <div class="row"></div>
-            <div class="ui attached bottom secondary inverted segment">
-                    <div class="row">H</div>
-                    <div class="row">H</div>
-                    <div class="row">H</div>
-            </div>
-    </div>
+    <!--<footer class="ui footer main inverted segment content">
+            <div class="row">Desarrollado por Equipo de desarrollo Techlabs</div>
+    </footer> -->
     @endguest
     </div>
 </body>
