@@ -96,7 +96,7 @@
             @yield('content')
     </div>
     @else
-    <div class="ui fluid container" style="overflow:auto;">
+    <div class="ui fluid container">
             @yield('content')
     </div>
     <!--<footer class="ui footer main inverted segment content">

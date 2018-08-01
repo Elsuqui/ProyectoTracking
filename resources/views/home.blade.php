@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="ui tablet stackable padded grid">
+    <div class="ui tablet stackable grid">
         <div class="three wide column">
              <!-- Menu Flotante -->
              <div class="ui left vertical menu">
@@ -30,9 +30,12 @@
                             @endif
                             Seguimiento y Control de las diferentes Lineas de Buses Urbanos
                     </div>
-                    <div class="ui compact segment" >
+                    <div class="ui compact segment">
+                        <div class="ui dimmer" id="mapa">
+                                <div class="ui active medium text inverted loader" id="loader">Cargando</div>
+                        </div>
                         <div class="ui embed" id="google-map">
-    
+                                <!-- CONTENEDOR DE GOOGLE MAPS -->
                         </div>
                     </div>
             </div>
@@ -85,12 +88,14 @@
     </div>
 @endsection
 @section("scripts")
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7E7LP4nqfQbTXkHqs9s2OlXRXGJTGHAc&callback=inicializarMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7E7LP4nqfQbTXkHqs9s2OlXRXGJTGHAc&callback=inicializarMap"></script>
     <script>
         $(document).ready(function() {
+            $("#mapa").dimmer("show");
             inicializarMap();
         });
-        function inicializarMap() {
+        
+        window.inicializarMap = function () {
             // The location of Uluru
             var pos = {lat: -0.180653, lng: -78.467834};
             // The map, centered at Uluru
@@ -98,6 +103,10 @@
                 document.getElementById('google-map'), {zoom: 4, center: pos});
             // The marker, positioned at Uluru
             var marker = new google.maps.Marker({position: pos, map: map});
-        }
+            //isMapsApiLoaded = true;
+            // initialize map, etc.
+            //$("#loader").hide();
+            $("#mapa").dimmer("hide");
+        };
     </script>
 @endsection
